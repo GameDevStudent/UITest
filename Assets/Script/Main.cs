@@ -11,6 +11,7 @@ public class Main : MonoBehaviour {
 	private BookDict m_book;
 
 	public GameObject m_panelMain;
+	public GameObject m_panelSetup;
 
 	// Use this for initialization
 	void Start () {
@@ -29,6 +30,12 @@ public class Main : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+	}
+
+	public void OnClickBack()
+	{
+		m_panelMain.SetActive(false);
+		m_panelSetup.SetActive(true);
 	}
 
 	void OnApplicationQuit()

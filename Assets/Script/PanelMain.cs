@@ -16,6 +16,7 @@ public class PanelMain : MonoBehaviour {
 	}
 
 	public GameObject m_panelInfoText;
+	public GameObject m_wordInfoText;
 
 	private Progress m_progress;
 	private Record m_currentWord;
@@ -29,6 +30,7 @@ public class PanelMain : MonoBehaviour {
 		if(m_currentWord != null)
 		{
 			m_wordText.text = m_currentWord.m_word;
+			m_currentWord.UpdateInfoText(m_wordInfoText);
 		}
 		m_progress.UpdateInfoText(m_panelInfoText);
 	}

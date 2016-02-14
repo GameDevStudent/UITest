@@ -13,10 +13,12 @@ public class BookDict
 	private string m_rootPath;
 
 	private List<string> m_bookWords;
+	private HashSet<string> m_wordSet;
 
 	public BookDict(string path, string name)
 	{
 		m_bookWords = new List<string>();
+		m_wordSet = new HashSet<string>();
 
 		m_rootPath = path;
 		m_bookName = name;
@@ -61,8 +63,15 @@ public class BookDict
 				while (file.Peek () >= 0)
 				{
 					string word = file.ReadLine ();
-					m_bookWords.Add(word);
-					progress.AddWord (word);
+					if(word.Length > 0)
+					{
+						if(!m_wordSet.Contains(word))
+						{
+							m_wordSet.Add(word);
+							m_bookWords.Add(word);
+							progress.AddWord (word);
+						}
+					}
 				}
 			}
 		}

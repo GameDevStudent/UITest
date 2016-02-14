@@ -150,8 +150,8 @@ public class Progress
 	{
 		Text wordText = infoObj.GetComponent<Text> ();
 		string text = "已认识字: " + m_usedWords.Count + "\r\n";
-		text += "未认识字: " + (m_freshWords.Count + m_pendingWords.Count) + "\r\n";
 		text += "待背字: " + m_pendingWords.Count + "\r\n";
+		text += "未认识字: " + m_freshWords.Count + "\r\n";
 		wordText.text = text;
 	}
 

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System;
 using System.Collections;
 using System.IO;
@@ -71,6 +72,28 @@ public class Record
 		int hours = timegap * 23;
 		m_nextTime = now.AddHours(hours);
 		m_nextTime = m_nextTime.AddMinutes(1);
+	}
+
+	public void UpdateInfoText(GameObject infoObj)
+	{
+		Text wordText = infoObj.GetComponent<Text> ();
+		string text = "已记忆次数: " + m_recordHistory.Count + "\r\n";
+		text += "下一次: " + m_nextTime.ToString() + "\r\n";
+		int correct = 0;
+		int wrong = 0;
+		foreach(RecordEntry entry in m_recordHistory)
+		{
+			if(entry.m_result)
+			{
+				correct++;
+			}
+			else
+			{
+				wrong++;
+			}
+		}
+		text += "正确: " + correct + " 错误: " + wrong + "\r\n";
+		wordText.text = text;
 	}
 
 	public void Save(BinaryWriter writer)
