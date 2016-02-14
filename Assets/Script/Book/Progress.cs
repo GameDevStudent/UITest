@@ -7,9 +7,7 @@ using System.IO;
 
 public class Progress
 {
-	static private int m_version = 0;
-	static public string m_ext = ".his";
-	public string m_path = "His";
+	private const int m_version = 1;
 	private string m_Id = "Default";
 
 	public string ProgressID
@@ -23,6 +21,13 @@ public class Progress
 	}
 
 	private string m_rootPath;
+	private List<string> m_books;
+
+	public void AddBook(string book)
+	{
+		m_books.Add(book);
+	}
+
 	private Dictionary<string, Record> m_wordSet;
 	private List<Record> m_freshWords;
 	private List<Record> m_usedWords;
@@ -31,6 +36,8 @@ public class Progress
 	public Progress(string rootpath)
 	{
 		m_rootPath = rootpath;
+		m_books = new List<string>();
+
 		m_wordSet = new Dictionary<string, Record> ();
 		m_freshWords = new List<Record>();
 		m_usedWords = new List<Record>();
@@ -131,21 +138,6 @@ public class Progress
 		m_pendingWords.Sort(comparer);
 	}
 
-	static private string FileName(string id)
-	{
-		return id + m_ext;
-	}
-
-	private string ProgressDirectory(string rootpath)
-	{
-		return rootpath + m_path + @"\";
-	}
-
-	private string FullPath(string rootpath)
-	{
-		return ProgressDirectory(rootpath) + FileName(m_Id);
-	}
-
 	public void UpdateInfoText(GameObject infoObj)
 	{
 		Text wordText = infoObj.GetComponent<Text> ();
@@ -157,43 +149,62 @@ public class Progress
 
 	public void Save(string rootpath)
 	{
-		string dir = ProgressDirectory (rootpath);
+		string dir = ProgressContainer.ProgressDirectory (rootpath);
 		Directory.CreateDirectory (dir);
-		string fullpath = FullPath(rootpath);
-		Debug.Log("progress file: " + fullpath);
-		if (File.Exists (fullpath))
+		string fullpath = ProgressContainer.FullPath(rootpath, m_Id);
+		using (BinaryWriter file = new BinaryWriter (File.Open(fullpath, FileMode.OpenOrCreate)))
 		{
-			using (BinaryWriter file = new BinaryWriter (File.Open(fullpath, FileMode.OpenOrCreate)))
+			file.Write(m_version);
+			file.Write(m_books.Count);
+			foreach(string book in m_books)
 			{
-				file.Write(m_version);
-				file.Write(m_wordSet.Count);
-				foreach (KeyValuePair<string, Record> entry in m_wordSet)
-				{
-					Record record = entry.Value;
-					record.Save(file);
-				}
+				file.Write(book);
+			}
+
+			file.Write(m_wordSet.Count);
+			foreach (KeyValuePair<string, Record> entry in m_wordSet)
+			{
+				Record record = entry.Value;
+				record.Save(file);
 			}
 		}
 	}
 
 	public void Load(string rootpath)
 	{
-		string dir = ProgressDirectory (rootpath);
+		string dir = ProgressContainer.ProgressDirectory (rootpath);
 		Directory.CreateDirectory (dir);
-		string fullpath = FullPath(rootpath);
+		string fullpath = ProgressContainer.FullPath(rootpath, m_Id);
 		if (File.Exists (fullpath))
 		{
 			using (BinaryReader file = new BinaryReader (File.Open(fullpath, FileMode.Open)))
 			{
-				m_version = file.ReadInt32();
+				int version = file.ReadInt32();
+				if(version >= 1)
+				{
+					int booknum = file.ReadInt32();
+					for(int i = 0; i < booknum; i++)
+					{
+						string book = file.ReadString();
+						m_books.Add(book);
+					}
+				}
 				int count = file.ReadInt32();
 				for(int i = 0; i < count; i++)
 				{
 					Record record = new Record(null);
-					record.Load(file, m_version);
+					record.Load(file, version);
 					m_wordSet.Add(record.m_word, record);
 				}
 			}
 		}
+
+		foreach(string book in m_books)
+		{
+			BookDict dict = new BookDict (rootpath, book);
+			dict.ReadBook (this);
+			dict.SaveBook();
+		}
+		ReOrganize();
 	}
 }

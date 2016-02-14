@@ -32,7 +32,16 @@ public class PanelMain : MonoBehaviour {
 			m_wordText.text = m_currentWord.m_word;
 			m_currentWord.UpdateInfoText(m_wordInfoText);
 		}
+		else
+		{
+			m_wordText.text = "Completed!";
+		}
 		m_progress.UpdateInfoText(m_panelInfoText);
+	}
+
+	public void ClearText()
+	{
+		m_wordText.text = "";
 	}
 
 	// Use this for initialization
@@ -47,7 +56,6 @@ public class PanelMain : MonoBehaviour {
 	{
 		if(m_wordChanged)
 		{
-			//m_progress.Save(
 			UpdateText();
 			m_wordChanged = false;
 		}

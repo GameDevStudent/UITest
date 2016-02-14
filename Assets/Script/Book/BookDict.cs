@@ -7,7 +7,7 @@ public class BookDict
 {
 
 	static public string m_bookExt = ".book";
-	public string m_bookPath = "Book";
+	static public string m_bookPath = "Book";
 
 	private string m_bookName = "Default";
 	private string m_rootPath;
