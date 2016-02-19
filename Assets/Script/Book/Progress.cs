@@ -44,12 +44,17 @@ public class Progress
 		m_pendingWords = new List<Record>();
 	}
 
-	public void AddWord(string word)
+	public void AddWord(BookItem item)
 	{
-		if(!m_wordSet.ContainsKey(word))
+		if(!m_wordSet.ContainsKey(item.Word))
 		{
-			Record rec = new Record(word);
-			m_wordSet.Add (word, rec);
+			Record rec = new Record(item);
+			m_wordSet.Add (item.Word, rec);
+		}
+		else
+		{
+			Record rec = m_wordSet[item.Word];
+			rec.Item = item;
 		}
 	}
 
@@ -186,13 +191,16 @@ public class Progress
 					for(int i = 0; i < booknum; i++)
 					{
 						string book = file.ReadString();
-						m_books.Add(book);
+						if(!m_books.Exists(x=>x==book))
+						{
+							m_books.Add(book);
+						}
 					}
 				}
 				int count = file.ReadInt32();
 				for(int i = 0; i < count; i++)
 				{
-					Record record = new Record(null);
+					Record record = new Record();
 					record.Load(file, version);
 					m_wordSet.Add(record.m_word, record);
 				}

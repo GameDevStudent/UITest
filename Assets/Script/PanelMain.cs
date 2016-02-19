@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PanelMain : MonoBehaviour {
 
@@ -17,6 +18,9 @@ public class PanelMain : MonoBehaviour {
 
 	public GameObject m_panelInfoText;
 	public GameObject m_wordInfoText;
+
+	public GameObject m_buttonPanel;
+	public GameObject m_choicePanel;
 
 	private Progress m_progress;
 	private Record m_currentWord;
@@ -37,6 +41,21 @@ public class PanelMain : MonoBehaviour {
 			m_wordText.text = "Completed!";
 		}
 		m_progress.UpdateInfoText(m_panelInfoText);
+
+		if(m_currentWord.Item.Answer.Length > 0)
+		{
+			List<string> choice = new List<string>();
+			choice.Add(m_currentWord.Item.Answer);
+			choice.AddRange(m_currentWord.Item.Choices);
+			if(choice.Count == 4)
+			{
+				m_choicePanel.SetActive(true);
+				m_buttonPanel.SetActive(false);
+				return;
+			}
+		}
+		m_choicePanel.SetActive(false);
+		m_buttonPanel.SetActive(true);
 	}
 
 	public void ClearText()

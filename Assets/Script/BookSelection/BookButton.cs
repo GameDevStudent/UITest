@@ -68,5 +68,6 @@ public class BookButton : MonoBehaviour {
 
 	public void OnEditBook()
 	{
+		Main.instance.EditBook();
 	}
 }

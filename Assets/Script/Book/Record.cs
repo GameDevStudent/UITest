@@ -8,11 +8,30 @@ public class Record
 {
 	public string m_word;
 	public DateTime m_nextTime;
+	private BookItem m_item;
 	private ArrayList m_recordHistory;
 
-	public Record(string word)
+	public BookItem Item
 	{
-		m_word = word;
+		get
+		{
+			return m_item;
+		}
+		set
+		{
+			m_item = value;
+		}
+	}
+
+	public Record()
+	{
+		m_recordHistory = new ArrayList();
+	}
+
+	public Record(BookItem item)
+	{
+		m_word = item.Word;
+		m_item = item;
 		m_recordHistory = new ArrayList();
 	}
 

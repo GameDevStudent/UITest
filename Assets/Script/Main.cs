@@ -15,6 +15,9 @@ public class Main : MonoBehaviour {
 	public GameObject m_panelMain;
 	public GameObject m_panelSetup;
 	public GameObject m_panelNewProfile;
+	public GameObject m_panelEditBook;
+
+	public GameObject[] m_panelRef;
 
 	public GameObject m_BookList;
 	ProfileUpdate m_profileSetup;
@@ -23,6 +26,22 @@ public class Main : MonoBehaviour {
 	{
 		instance = this;
 		m_availableProgress = new ProgressContainer();
+		m_panelRef = new GameObject[4];
+	}
+
+	void SwitchToPanel(GameObject panel)
+	{
+		foreach(GameObject obj in m_panelRef)
+		{
+			if(obj == panel)
+			{
+				obj.SetActive(true);
+			}
+			else
+			{
+				obj.SetActive(false);
+			}
+		}
 	}
 
 	public bool IsProfileValid(CheckProfile check)
@@ -32,6 +51,11 @@ public class Main : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		m_panelRef[0] = m_panelMain;
+		m_panelRef[1] = m_panelSetup;
+		m_panelRef[2] = m_panelNewProfile;
+		m_panelRef[3] = m_panelEditBook;
+
 		SelectBook script = (SelectBook)m_BookList.GetComponent (typeof(SelectBook));
 		script.CollectBooks(m_RootPath, m_BookList);
 		m_availableProgress.RecollectProgress(m_RootPath);
@@ -45,9 +69,7 @@ public class Main : MonoBehaviour {
 		}
 		m_profileSetup.InitProfiles(m_availableProgress);
 
-		m_panelNewProfile.SetActive(false);
-		m_panelMain.SetActive(false);
-		m_panelSetup.SetActive(true);
+		SwitchToPanel(m_panelSetup);
 	}
 
 	public void OpenProgress(string id, List<string> books)
@@ -63,16 +85,12 @@ public class Main : MonoBehaviour {
 		PanelMain panelMainScript = (PanelMain)m_panelMain.GetComponent (typeof(PanelMain));
 		panelMainScript.BookProgress = m_progress;
 
-		m_panelNewProfile.SetActive(false);
-		m_panelMain.SetActive(true);
-		m_panelSetup.SetActive(false);
+		SwitchToPanel(m_panelMain);
 	}
 
 	public void OnNewProfile()
 	{
-		m_panelNewProfile.SetActive(true);
-		m_panelMain.SetActive(false);
-		m_panelSetup.SetActive(false);
+		SwitchToPanel(m_panelNewProfile);
 	}
 
 	public void CreateNewProfile(string id, List<string> books)
@@ -87,9 +105,8 @@ public class Main : MonoBehaviour {
 
 		m_availableProgress.RecollectProgress(m_RootPath);
 		m_profileSetup.InitProfiles(m_availableProgress);
-		m_panelNewProfile.SetActive(false);
-		m_panelMain.SetActive(false);
-		m_panelSetup.SetActive(true);
+
+		SwitchToPanel(m_panelSetup);
 	}
 
 	// Update is called once per frame
@@ -97,13 +114,17 @@ public class Main : MonoBehaviour {
 	{
 	}
 
+	public void EditBook()
+	{
+		SwitchToPanel(m_panelEditBook);
+	}
+
 	public void OnClickBack()
 	{
 		m_progress.Save(m_RootPath);
 		m_progress = null;
 
-		m_panelMain.SetActive(false);
-		m_panelSetup.SetActive(true);
+		SwitchToPanel(m_panelSetup);
 
 		PanelMain panelMainScript = (PanelMain)m_panelMain.GetComponent (typeof(PanelMain));
 		panelMainScript.ClearText();
