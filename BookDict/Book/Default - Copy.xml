@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<document>
+  <header />
+  <content>
+    <item id="上楼" answer="shàng lóu">
+      <error answer="hū yōu" />
+      <error answer="làng lū" />
+    </item>
+    <item id="上海" answer="shàng hǎi">
+      <error answer="màng nǎi " />
+    </item>
+    <item id="下雨" answer="">
+      <error answer="a" />
+    </item>
+    <item id="下雪" answer="">
+      <error answer="a" />
+    </item>
+    <item id="东" answer="">
+      <error answer="a" />
+    </item>
+    <item id="中国" answer="">
+      <error answer="a" />
+    </item>
+    <item id="乌龟" answer="">
+      <error answer="a" />
+    </item>
+    <item id="买" answer="">
+      <error answer="a" />
+    </item>
+    <item id="他" answer="">
+      <error answer="a" />
+    </item>
+    <item id="企鹅" answer="">
+      <error answer="a" />
+    </item>
+    <item id="作业" answer="">
+      <error answer="a" />
+    </item>
+    <item id="你" answer="">
+      <error answer="a" />
+    </item>
+    <item id="冬天" answer="">
+      <error answer="a" />
+    </item>
+    <item id="加拿大" answer="">
+      <error answer="a" />
+    </item>
+    <item id="南" answer="">
+      <error answer="a" />
+    </item>
+    <item id="南瓜" answer="">
+      <error answer="a" />
+    </item>
+    <item id="厕所" answer="">
+      <error answer="a" />
+    </item>
+    <item id="台灯" answer="">
+      <error answer="a" />
+    </item>
+    <item id="吃饭" answer="">
+      <error answer="a" />
+    </item>
+    <item id="商店" answer="">
+      <error answer="a" />
+    </item>
+    <item id="喝水" answer="">
+      <error answer="a" />
+    </item>
+    <item id="嘴巴" answer="">
+      <error answer="a" />
+    </item>
+    <item id="回家" answer="">
+      <error answer="a" />
+    </item>
+    <item id="地球" answer="">
+      <error answer="a" />
+    </item>
+    <item id="夏天" answer="">
+      <error answer="a" />
+    </item>
+    <item id="外公" answer="">
+      <error answer="a" />
+    </item>
+    <item id="多伦多" answer="">
+      <error answer="a" />
+    </item>
+    <item id="大冬瓜" answer="">
+      <error answer="a" />
+    </item>
+    <item id="头" answer="">
+      <error answer="a" />
+    </item>
+    <item id="头发" answer="">
+      <error answer="a" />
+    </item>
+    <item id="女儿" answer="">
+      <error answer="a" />
+    </item>
+    <item id="女孩" answer="">
+      <error answer="a" />
+    </item>
+    <item id="她" answer="">
+      <error answer="a" />
+    </item>
+    <item id="妈妈" answer="">
+      <error answer="a" />
+    </item>
+    <item id="妹妹" answer="">
+      <error answer="a" />
+    </item>
+    <item id="姑姑" answer="">
+      <error answer="a" />
+    </item>
+    <item id="字" answer="">
+      <error answer="a" />
+    </item>
+    <item id="字母" answer="">
+      <error answer="a" />
+    </item>
+    <item id="学习" answer="">
+      <error answer="a" />
+    </item>
+    <item id="学校" answer="">
+      <error answer="a" />
+    </item>
+    <item id="家" answer="">
+      <error answer="a" />
+    </item>
+    <item id="小朋友" answer="">
+      <error answer="a" />
+    </item>
+    <item id="床" answer="">
+      <error answer="a" />
+    </item>
+    <item id="我" answer="">
+      <error answer="a" />
+    </item>
+    <item id="房子" answer="">
+      <error answer="a" />
+    </item>
+    <item id="手" answer="">
+      <error answer="a" />
+    </item>
+    <item id="手指头" answer="">
+      <error answer="a" />
+    </item>
+    <item id="手机" answer="">
+      <error answer="a" />
+    </item>
+    <item id="数学" answer="">
+      <error answer="a" />
+    </item>
+    <item id="春天" answer="">
+      <error answer="a" />
+    </item>
+    <item id="春节" answer="">
+      <error answer="a" />
+    </item>
+    <item id="杭州" answer="">
+      <error answer="a" />
+    </item>
+    <item id="树" answer="">
+      <error answer="a" />
+    </item>
+    <item id="桌子" answer="">
+      <error answer="a" />
+    </item>
+    <item id="梨" answer="">
+      <error answer="a" />
+    </item>
+    <item id="汽车" answer="">
+      <error answer="a" />
+    </item>
+    <item id="洗澡" answer="">
+      <error answer="a" />
+    </item>
+    <item id="洗衣机" answer="">
+      <error answer="a" />
+    </item>
+    <item id="游戏" answer="">
+      <error answer="a" />
+    </item>
+    <item id="滑冰" answer="">
+      <error answer="a" />
+    </item>
+    <item id="爷爷" answer="">
+      <error answer="a" />
+    </item>
+    <item id="爸爸" answer="">
+      <error answer="a" />
+    </item>
+    <item id="牙齿" answer="">
+      <error answer="a" />
+    </item>
+    <item id="牛" answer="">
+      <error answer="a" />
+    </item>
+    <item id="牛奶" answer="">
+      <error answer="a" />
+    </item>
+    <item id="狮子" answer="">
+      <error answer="a" />
+    </item>
+    <item id="猪肉" answer="">
+      <error answer="a" />
+    </item>
+    <item id="生日" answer="">
+      <error answer="a" />
+    </item>
+    <item id="电影" answer="">
+      <error answer="a" />
+    </item>
+    <item id="电灯" answer="">
+      <error answer="a" />
+    </item>
+    <item id="电视" answer="">
+      <error answer="a" />
+    </item>
+    <item id="电话" answer="">
+      <error answer="a" />
+    </item>
+    <item id="男孩" answer="">
+      <error answer="a" />
+    </item>
+    <item id="眉毛" answer="">
+      <error answer="a" />
+    </item>
+    <item id="看书" answer="">
+      <error answer="a" />
+    </item>
+    <item id="眼睛" answer="">
+      <error answer="a" />
+    </item>
+    <item id="种菜" answer="">
+      <error answer="a" />
+    </item>
+    <item id="科学" answer="">
+      <error answer="a" />
+    </item>
+    <item id="程序" answer="">
+      <error answer="a" />
+    </item>
+    <item id="窗帘" answer="">
+      <error answer="a" />
+    </item>
+    <item id="窗户" answer="">
+      <error answer="a" />
+    </item>
+    <item id="羊" answer="">
+      <error answer="a" />
+    </item>
+    <item id="美国" answer="">
+      <error answer="a" />
+    </item>
+    <item id="老师" answer="">
+      <error answer="a" />
+    </item>
+    <item id="老虎" answer="">
+      <error answer="a" />
+    </item>
+    <item id="老鼠" answer="">
+      <error answer="a" />
+    </item>
+    <item id="耳朵" answer="">
+      <error answer="a" />
+    </item>
+    <item id="脚" answer="">
+      <error answer="a" />
+    </item>
+    <item id="自行车" answer="">
+      <error answer="a" />
+    </item>
+    <item id="舌头" answer="">
+      <error answer="a" />
+    </item>
+    <item id="花" answer="">
+      <error answer="a" />
+    </item>
+    <item id="英语" answer="">
+      <error answer="a" />
+    </item>
+    <item id="苹果" answer="">
+      <error answer="a" />
+    </item>
+    <item id="草地" answer="">
+      <error answer="a" />
+    </item>
+    <item id="蚊子" answer="">
+      <error answer="a" />
+    </item>
+    <item id="衣服" answer="">
+      <error answer="a" />
+    </item>
+    <item id="西瓜" answer="">
+      <error answer="a" />
+    </item>
+    <item id="计算机" answer="">
+      <error answer="a" />
+    </item>
+    <item id="走路" answer="">
+      <error answer="a" />
+    </item>
+    <item id="钢琴" answer="">
+      <error answer="a" />
+    </item>
+    <item id="铅笔" answer="">
+      <error answer="a" />
+    </item>
+    <item id="门" answer="">
+      <error answer="a" />
+    </item>
+    <item id="阿姨" answer="">
+      <error answer="a" />
+    </item>
+    <item id="雪人" answer="">
+      <error answer="a" />
+    </item>
+    <item id="青菜" answer="">
+      <error answer="a" />
+    </item>
+    <item id="鞋子" answer="">
+      <error answer="a" />
+    </item>
+    <item id="风" answer="">
+      <error answer="a" />
+    </item>
+    <item id="飞机" answer="">
+      <error answer="a" />
+    </item>
+    <item id="马" answer="">
+      <error answer="a" />
+    </item>
+    <item id="鱼" answer="">
+      <error answer="a" />
+    </item>
+    <item id="鸟" answer="">
+      <error answer="a" />
+    </item>
+    <item id="鸡肉" answer="">
+      <error answer="a" />
+    </item>
+    <item id="黄瓜" answer="">
+      <error answer="a" />
+    </item>
+    <item id="鼻子" answer="">
+      <error answer="a" />
+    </item>
+    <item id="龙" answer="">
+      <error answer="a" />
+    </item>
+  </content>
+</document>

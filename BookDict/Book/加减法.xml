@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<document>
+  <header />
+  <content>
+    <item id="11-8=？" answer="">
+      <error answer="empty" />
+    </item>
+    <item id="13+14=？" answer="">
+      <error answer="empty" />
+    </item>
+    <item id="14+29=?" answer="">
+      <error answer="empty" />
+    </item>
+    <item id="18+15=？" answer="">
+      <error answer="empty" />
+    </item>
+    <item id="19+42=？" answer="">
+      <error answer="empty" />
+    </item>
+    <item id="27-12=？" answer="">
+      <error answer="empty" />
+    </item>
+    <item id="41-27=？" answer="">
+      <error answer="empty" />
+    </item>
+    <item id="43+17=？" answer="">
+      <error answer="empty" />
+    </item>
+    <item id="74-59=?" answer="">
+      <error answer="empty" />
+    </item>
+  </content>
+</document>
