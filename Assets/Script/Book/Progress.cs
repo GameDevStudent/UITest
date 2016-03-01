@@ -92,7 +92,16 @@ public class Progress
 		}
 		else if(m_freshWords.Count > 0)
 		{
-			return m_freshWords[0];
+			System.Random random = new System.Random();
+			int index = random.Next(0, m_freshWords.Count);
+			if(index < m_freshWords.Count)
+			{
+				return m_freshWords[index];
+			}
+			else
+			{
+				return m_freshWords[0];
+			}
 		}
 		return null;
 	}

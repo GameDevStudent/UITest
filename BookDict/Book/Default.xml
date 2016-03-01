@@ -1,82 +1,129 @@
 <?xml version="1.0"?>
 <document>
-  <header />
+  <header type="字词" time="32" />
   <content>
     <item id="上楼" answer="shàng lóu">
       <error answer="hū yōu" />
       <error answer="làng lū" />
+      <error answer="xià lóu" />
     </item>
     <item id="上海" answer="shàng hǎi">
-      <error answer="màng nǎi " />
+      <error answer="màng nǎi" />
+      <error answer="sàng nǎi" />
+      <error answer="sàng hǎi" />
     </item>
     <item id="下雨" answer="xià yǔ">
-      <error answer="a" />
-    </item>
-    <item id="下雪" answer="">
+      <error answer="xià jù" />
       <error answer="jià yǔ" />
+      <error answer="shàng ér" />
     </item>
-    <item id="东" answer="">
-      <error answer="a" />
+    <item id="下雪" answer="xià xuě">
+      <error answer="jià yǔ" />
+      <error answer="dǎ léi" />
+      <error answer="xià yǔ" />
     </item>
-    <item id="中国" answer="">
-      <error answer="a" />
+    <item id="东" answer="dōng">
+      <error answer="lōng" />
+      <error answer="kōng" />
+      <error answer="xī" />
     </item>
-    <item id="乌龟" answer="">
-      <error answer="a" />
+    <item id="中国" answer="zhōng guó">
+      <error answer="měi guó" />
+      <error answer="zhōng jiān" />
+      <error answer="guó jiā" />
     </item>
-    <item id="买" answer="">
-      <error answer="a" />
+    <item id="乌龟" answer="wū guī">
+      <error answer="shī fù" />
+      <error answer="niǎo guì" />
+      <error answer="wū jī" />
     </item>
-    <item id="他" answer="">
-      <error answer="a" />
+    <item id="买" answer="mǎi">
+      <error answer="mài" />
+      <error answer="jiā" />
+      <error answer="jiào" />
     </item>
-    <item id="企鹅" answer="">
-      <error answer="a" />
+    <item id="他" answer="tā">
+      <error answer="mài" />
+      <error answer="kōng" />
+      <error answer="guì" />
     </item>
-    <item id="作业" answer="">
-      <error answer="a" />
+    <item id="企鹅" answer="qǐ é">
+      <error answer="wū guī" />
+      <error answer="dà é" />
+      <error answer="jié bā" />
     </item>
-    <item id="你" answer="">
-      <error answer="a" />
+    <item id="作业" answer="zuò yè">
+      <error answer="zuò jiā" />
+      <error answer="qǐ é" />
+      <error answer="shī fù" />
     </item>
-    <item id="冬天" answer="">
-      <error answer="a" />
+    <item id="你" answer="nǐ">
+      <error answer="qǐ" />
+      <error answer="fù" />
+      <error answer="shī" />
     </item>
-    <item id="加拿大" answer="">
-      <error answer="a" />
+    <item id="冬天" answer="dōng tiān">
+      <error answer="dōng guā" />
+      <error answer="qiū tiān" />
+      <error answer="dōng jì" />
     </item>
-    <item id="南" answer="">
-      <error answer="a" />
+    <item id="加拿大" answer="jiā ná dà">
+      <error answer="xī bān yá" />
+      <error answer="jiā lè bǐ" />
+      <error answer="ān dà luè" />
     </item>
-    <item id="南瓜" answer="">
-      <error answer="a" />
+    <item id="南" answer="nán">
+      <error answer="běi" />
+      <error answer="dà" />
+      <error answer="dōng" />
+    </item>
+    <item id="南瓜" answer="nán guā">
+      <error answer="huáng guā" />
+      <error answer="dōng tiān" />
+      <error answer="nán fāng" />
     </item>
     <item id="厕所" answer="">
       <error answer="a" />
     </item>
-    <item id="台灯" answer="">
-      <error answer="a" />
+    <item id="台灯" answer="tái dēng">
+      <error answer="diàn dēng" />
+      <error answer="dōng tiān" />
+      <error answer="tái zǐ" />
     </item>
-    <item id="吃饭" answer="">
-      <error answer="a" />
+    <item id="吃饭" answer="chī fàn">
+      <error answer="shāng diàn" />
+      <error answer="dōng tiān" />
+      <error answer="hē shuǐ" />
     </item>
-    <item id="商店" answer="">
-      <error answer="a" />
+    <item id="商店" answer="shāng diàn">
+      <error answer="tái dēng" />
+      <error answer="shāng rén" />
+      <error answer="mén kǒu" />
     </item>
-    <item id="喝水" answer="">
-      <error answer="a" />
+    <item id="喝水" answer="hē shuǐ">
+      <error answer="chī fàn" />
+      <error answer="shāng diàn" />
+      <error answer="kē shuì" />
     </item>
-    <item id="嘴巴" answer="">
-      <error answer="a" />
+    <item id="嘴巴" answer="zuǐ bā">
+      <error answer="jié bā" />
+      <error answer="bā jié" />
+      <error answer="zuǐ jiǎo" />
     </item>
-    <item id="回家" answer="">
-      <error answer="a" />
+    <item id="回家" answer="huí jiā">
+      <error answer="jié bā" />
+      <error answer="kǒu tā" />
+      <error answer="zuǐ bā" />
     </item>
-    <item id="地球" answer="">
-      <error answer="a" />
+    <item id="地球" answer="dì qiú">
+      <error answer="yuè qiú" />
+      <error answer="yuè liàng" />
+      <error answer="dì miàn" />
     </item>
-    <item id="夏天" answer="">
-      <error answer="a" />
+    <item id="夏天" answer="xià tiān">
+      <error answer="dì qiú" />
+      <error answer="chūn tiān" />
+      <error answer="dōng tiān" />
     </item>
     <item id="外公" answer="">
       <error answer="a" />
@@ -99,11 +146,15 @@
     <item id="女孩" answer="">
       <error answer="a" />
     </item>
-    <item id="她" answer="">
-      <error answer="a" />
+    <item id="她" answer="tā">
+      <error answer="mā" />
+      <error answer="bà" />
+      <error answer="tǎ" />
     </item>
-    <item id="妈妈" answer="">
-      <error answer="a" />
+    <item id="妈妈" answer="mā mā">
+      <error answer="bà bà" />
+      <error answer="yé yé " />
+      <error answer="xué xiào" />
     </item>
     <item id="妹妹" answer="">
       <error answer="a" />
@@ -111,8 +162,10 @@
     <item id="姑姑" answer="">
       <error answer="a" />
     </item>
-    <item id="字" answer="">
-      <error answer="a" />
+    <item id="字" answer="zì">
+      <error answer="cí" />
+      <error answer="tā" />
+      <error answer="xiào" />
     </item>
     <item id="字母" answer="">
       <error answer="a" />
@@ -120,11 +173,15 @@
     <item id="学习" answer="">
       <error answer="a" />
     </item>
-    <item id="学校" answer="">
-      <error answer="a" />
+    <item id="学校" answer="xué xiào">
+      <error answer="xué xí" />
+      <error answer="shàng xué" />
+      <error answer="sī xiào" />
     </item>
-    <item id="家" answer="">
-      <error answer="a" />
+    <item id="家" answer="jiā">
+      <error answer="chuāng" />
+      <error answer="jiǎ" />
+      <error answer="tā" />
     </item>
     <item id="小朋友" answer="">
       <error answer="a" />
@@ -132,14 +189,20 @@
     <item id="床" answer="">
       <error answer="a" />
     </item>
-    <item id="我" answer="">
-      <error answer="a" />
+    <item id="我" answer="wǒ">
+      <error answer="tā" />
+      <error answer="jiā" />
+      <error answer="wō" />
     </item>
-    <item id="房子" answer="">
-      <error answer="a" />
+    <item id="房子" answer="fáng zǐ">
+      <error answer="fáng wū" />
+      <error answer="hái zǐ" />
+      <error answer="jié chū" />
     </item>
-    <item id="手" answer="">
-      <error answer="a" />
+    <item id="手" answer="shǒu">
+      <error answer="shōu" />
+      <error answer="jiǎo" />
+      <error answer="jiào" />
     </item>
     <item id="手指头" answer="">
       <error answer="a" />
@@ -150,26 +213,38 @@
     <item id="数学" answer="">
       <error answer="a" />
     </item>
-    <item id="春天" answer="">
-      <error answer="a" />
+    <item id="春天" answer="chūn tiān">
+      <error answer="xià tiān" />
+      <error answer="chūn jié" />
+      <error answer="jié chū" />
     </item>
-    <item id="春节" answer="">
-      <error answer="a" />
+    <item id="春节" answer="chūn jiē">
+      <error answer="chūn tiān" />
+      <error answer="xià tiān" />
+      <error answer="jié chū" />
     </item>
-    <item id="杭州" answer="">
-      <error answer="a" />
+    <item id="杭州" answer="háng zhōu">
+      <error answer="chūn jiē" />
+      <error answer="guǎng xī" />
+      <error answer="guǎng zhōu" />
     </item>
     <item id="树" answer="">
       <error answer="a" />
     </item>
-    <item id="桌子" answer="">
-      <error answer="a" />
+    <item id="桌子" answer="zhuō zǐ">
+      <error answer="zuō jiǎo" />
+      <error answer="zuō zǐ" />
+      <error answer="zhuō yǐ" />
     </item>
-    <item id="梨" answer="">
-      <error answer="a" />
+    <item id="梨" answer="lí">
+      <error answer="zuō" />
+      <error answer="yǐ" />
+      <error answer="xī" />
     </item>
-    <item id="汽车" answer="">
-      <error answer="a" />
+    <item id="汽车" answer="qì chē">
+      <error answer="huǒ chē" />
+      <error answer="guǎng xī" />
+      <error answer="fēi jī" />
     </item>
     <item id="洗澡" answer="">
       <error answer="a" />
@@ -177,11 +252,15 @@
     <item id="洗衣机" answer="">
       <error answer="a" />
     </item>
-    <item id="游戏" answer="">
-      <error answer="a" />
+    <item id="游戏" answer="yóu xì">
+      <error answer="kàn xì" />
+      <error answer="yóu yǒng" />
+      <error answer="diàn shì" />
     </item>
-    <item id="滑冰" answer="">
-      <error answer="a" />
+    <item id="滑冰" answer="huá bīng">
+      <error answer="yóu yǒng" />
+      <error answer="qì chē" />
+      <error answer="diàn yǐng" />
     </item>
     <item id="爷爷" answer="">
       <error answer="a" />
@@ -209,15 +288,23 @@
     </item>
     <item id="电影" answer="diàn yǐng">
       <error answer="diàn yǐn" />
+      <error answer="diàn dēng" />
+      <error answer="diàn shì" />
     </item>
-    <item id="电灯" answer="">
-      <error answer="a" />
+    <item id="电灯" answer="diàn dēng">
+      <error answer="diàn shì" />
+      <error answer="dú shū" />
+      <error answer="tái dēng" />
     </item>
-    <item id="电视" answer="">
-      <error answer="a" />
+    <item id="电视" answer="diàn shì">
+      <error answer="diàn yǐn" />
+      <error answer="tái dēng" />
+      <error answer="shì lì" />
     </item>
-    <item id="电话" answer="">
-      <error answer="a" />
+    <item id="电话" answer="diàn huà">
+      <error answer="jiǎng huà " />
+      <error answer="diàn shì" />
+      <error answer="tái dēng" />
     </item>
     <item id="男孩" answer="">
       <error answer="a" />
@@ -225,17 +312,25 @@
     <item id="眉毛" answer="">
       <error answer="a" />
     </item>
-    <item id="看书" answer="">
-      <error answer="a" />
+    <item id="看书" answer="kàn shū">
+      <error answer="dú shū" />
+      <error answer="zhe shū" />
+      <error answer="kàn mù" />
     </item>
-    <item id="眼睛" answer="">
-      <error answer="a" />
+    <item id="眼睛" answer="yǎn jīng">
+      <error answer="yǎn jīn" />
+      <error answer="yǎn jìng" />
+      <error answer="gēn bān" />
     </item>
-    <item id="种菜" answer="">
-      <error answer="a" />
+    <item id="种菜" answer="zhòng cài">
+      <error answer="zuò cài" />
+      <error answer="zhǒng dì" />
+      <error answer="zhe shū" />
     </item>
-    <item id="科学" answer="">
-      <error answer="a" />
+    <item id="科学" answer="kē xué">
+      <error answer="shù xué" />
+      <error answer="xué xí" />
+      <error answer="diàn shì" />
     </item>
     <item id="程序" answer="">
       <error answer="a" />
@@ -254,23 +349,31 @@
       <error answer="zhōng gǔ" />
       <error answer="mó gōng" />
     </item>
-    <item id="老师" answer="">
-      <error answer="a" />
+    <item id="老师" answer="lǎo shī">
+      <error answer="lǎo hǔ" />
+      <error answer="měi guó" />
+      <error answer="lǎo shǔ" />
     </item>
-    <item id="老虎" answer="">
-      <error answer="a" />
+    <item id="老虎" answer="lǎo hǔ">
+      <error answer="lǎo hǔ" />
+      <error answer="zhōng gǔ" />
+      <error answer="mó gōng" />
     </item>
-    <item id="老鼠" answer="">
+    <item id="老鼠" answer="lǎo shǔ">
       <error answer="a" />
     </item>
     <item id="耳朵" answer="">
       <error answer="a" />
     </item>
-    <item id="脚" answer="">
-      <error answer="a" />
+    <item id="脚" answer="jiǎo">
+      <error answer="shǒu" />
+      <error answer="tuǐ" />
+      <error answer="jiào" />
     </item>
-    <item id="自行车" answer="">
-      <error answer="a" />
+    <item id="自行车" answer="zì xíng chē">
+      <error answer="xiǎo qì chē" />
+      <error answer="zì lái shuǐ" />
+      <error answer="huí bú lái" />
     </item>
     <item id="舌头" answer="">
       <error answer="a" />
@@ -284,8 +387,10 @@
     <item id="苹果" answer="">
       <error answer="a" />
     </item>
-    <item id="草地" answer="">
-      <error answer="a" />
+    <item id="草地" answer="cǎo dì">
+      <error answer="qiān bǐ" />
+      <error answer="huā yuán" />
+      <error answer="xià xuě" />
     </item>
     <item id="蚊子" answer="">
       <error answer="a" />
@@ -296,17 +401,23 @@
     <item id="西瓜" answer="">
       <error answer="a" />
     </item>
-    <item id="计算机" answer="">
-      <error answer="a" />
+    <item id="计算机" answer="jì suàn jī">
+      <error answer="zì xíng chē" />
+      <error answer="xǐ yī jī" />
+      <error answer="wēi bō lú" />
     </item>
-    <item id="走路" answer="">
+    <item id="走路" answer="zǒu lù">
       <error answer="a" />
     </item>
     <item id="钢琴" answer="gāng qín">
       <error answer="gāng qíng" />
+      <error answer="qiān bǐ" />
+      <error answer="zǒu lù" />
     </item>
-    <item id="铅笔" answer="">
-      <error answer="a" />
+    <item id="铅笔" answer="qiān bǐ">
+      <error answer="gāng qíng" />
+      <error answer="zǒu lù" />
+      <error answer="gāng bǐ" />
     </item>
     <item id="门" answer="">
       <error answer="a" />
@@ -314,44 +425,65 @@
     <item id="阿姨" answer="">
       <error answer="a" />
     </item>
-    <item id="雪人" answer="">
-      <error answer="a" />
+    <item id="雪人" answer="xuě rén">
+      <error answer="xià xuě" />
+      <error answer="xiǎo rén" />
+      <error answer="xuě qiú" />
     </item>
-    <item id="青菜" answer="">
-      <error answer="a" />
+    <item id="青菜" answer="qīng cài">
+      <error answer="zhǒng cài" />
+      <error answer="xuě qiú" />
+      <error answer="shāng diàn" />
     </item>
-    <item id="鞋子" answer="">
-      <error answer="a" />
+    <item id="鞋子" answer="xié zǐ">
+      <error answer="xuě rén" />
+      <error answer="qì chē" />
+      <error answer="hái zǐ" />
     </item>
-    <item id="风" answer="">
-      <error answer="a" />
+    <item id="风" answer="fēng">
+      <error answer="yú" />
+      <error answer="niǎo" />
+      <error answer="mǎ" />
     </item>
-    <item id="飞机" answer="">
-      <error answer="a" />
+    <item id="飞机" answer="fēi jī">
+      <error answer="qì chē" />
+      <error answer="fēng zhēng" />
+      <error answer="jī qì" />
     </item>
-    <item id="马" answer="">
-      <error answer="a" />
+    <item id="马" answer="mǎ">
+      <error answer="yú" />
+      <error answer="niǎo" />
+      <error answer="lóng" />
     </item>
-    <item id="鱼" answer="">
-      <error answer="a" />
+    <item id="鱼" answer="yú">
+      <error answer="niǎo" />
+      <error answer="jī" />
+      <error answer="lóng" />
     </item>
-    <item id="鸟" answer="">
-      <error answer="a" />
+    <item id="鸟" answer="niǎo">
+      <error answer="wū" />
+      <error answer="jī" />
+      <error answer="yú" />
     </item>
-    <item id="鸡肉" answer="">
-      <error answer="a" />
+    <item id="鸡肉" answer="jī ròu">
+      <error answer="fēng zhēng" />
+      <error answer="huáng guā" />
+      <error answer="fēi jī" />
     </item>
-    <item id="黄瓜" answer="">
-      <error answer="a" />
+    <item id="黄瓜" answer="huáng guā">
+      <error answer="dōng guā" />
+      <error answer="xī guā" />
+      <error answer="qì chē" />
     </item>
-    <item id="鼻子" answer="">
-      <error answer="a" />
+    <item id="鼻子" answer="bí zǐ">
+      <error answer="jī ròu" />
+      <error answer="huáng guā" />
+      <error answer="zuǐ bā" />
     </item>
     <item id="龙" answer="lóng">
       <error answer="nóng" />
+      <error answer="lǒng" />
+      <error answer="quǎn" />
     </item>
   </content>
-    <item id="广西" answer="guǎng xī">
-      <error answer="táng xī" />
-    </item>
 </document>

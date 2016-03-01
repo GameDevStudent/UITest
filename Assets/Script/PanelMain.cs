@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -22,13 +23,30 @@ public class PanelMain : MonoBehaviour {
 	public GameObject m_buttonPanel;
 	public GameObject m_choicePanel;
 
+	public GameObject m_judgeText;
+	float m_alphaTime = 0.0f;
+	const float m_alphaMaxTime = 1.5f;
+
+	int m_wordTime = 0;
+	float m_wordCoundown = 0.0f;
+
 	private Progress m_progress;
 	private Record m_currentWord;
 	private GameObject m_wordObject;
 	private Text m_wordText;
 	private bool m_wordChanged;
 
-	void UpdateText()
+	private GameObject m_timerObject;
+	private float m_timerScale;
+
+	List<string> m_choices;
+
+	PanelMain()
+	{
+		m_choices = new List<string>();
+	}
+
+	public void UpdateText()
 	{
 		m_currentWord = m_progress.GetCurrentWord();
 		if(m_currentWord != null)
@@ -42,13 +60,23 @@ public class PanelMain : MonoBehaviour {
 		}
 		m_progress.UpdateInfoText(m_panelInfoText);
 
+
+		m_wordTime = m_currentWord.Item.m_dict.Time;
+		if(m_wordTime > 0)
+		{
+			m_timerObject.SetActive(true);
+			m_wordCoundown = m_wordTime;
+		}
+
 		if(m_currentWord.Item.Answer.Length > 0)
 		{
-			List<string> choice = new List<string>();
-			choice.Add(m_currentWord.Item.Answer);
-			choice.AddRange(m_currentWord.Item.Choices);
-			if(choice.Count == 4)
+			List<string> choices = new List<string>();
+			choices.Add(m_currentWord.Item.Answer);
+			choices.AddRange(m_currentWord.Item.Choices);
+			if(choices.Count == 4)
 			{
+				m_choicePanel.SetActive(false);
+				SetChoiceButton(choices);
 				m_choicePanel.SetActive(true);
 				m_buttonPanel.SetActive(false);
 				return;
@@ -56,6 +84,40 @@ public class PanelMain : MonoBehaviour {
 		}
 		m_choicePanel.SetActive(false);
 		m_buttonPanel.SetActive(true);
+	}
+
+	void SetChoiceButton(List<string> choices)
+	{
+		m_choices.Clear();
+		System.Random random = new System.Random();
+		while(choices.Count > 0)
+		{
+			int index = random.Next(0, choices.Count);
+			if(index < choices.Count)
+			{
+				m_choices.Add(choices[index]);
+				choices.RemoveAt(index);
+			}
+		}
+		int idx = 0;
+		foreach(Transform child in m_choicePanel.transform)
+		{
+			Image btnimg = child.gameObject.GetComponent<Image>();
+			btnimg.color = Color.white;
+			foreach(Transform txtChild in child.gameObject.transform)
+			{
+				Text btntext = txtChild.gameObject.GetComponent<Text>();
+				if(idx < 4)
+				{
+					btntext.text = m_choices[idx];
+				}
+				else
+				{
+					btntext.text = "不认识";
+				}
+			}
+			idx++;
+		}
 	}
 
 	public void ClearText()
@@ -68,6 +130,10 @@ public class PanelMain : MonoBehaviour {
 	{
 		m_wordObject = GameObject.Find ("WordText");
 		m_wordText = m_wordObject.GetComponent<Text> ();
+		m_wordText.text = "";
+		m_timerObject = GameObject.Find("TimerText");
+		m_timerObject.SetActive(false);
+		m_judgeText.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -77,6 +143,58 @@ public class PanelMain : MonoBehaviour {
 		{
 			UpdateText();
 			m_wordChanged = false;
+		}
+
+		if(m_alphaTime > 0)
+		{
+			float scale = (m_alphaMaxTime - m_alphaTime) / m_alphaMaxTime;
+				m_judgeText.transform.localScale = new Vector3(scale,scale,1);
+			Text judge = m_judgeText.GetComponent<Text> ();
+			Color color = judge.color;
+			//color.a = m_alphaTime / m_alphaMaxTime;
+			judge.color = color;
+			m_alphaTime = m_alphaTime - Time.deltaTime;
+			if(m_alphaTime <= 0)
+			{
+				m_alphaTime = 0;
+				m_judgeText.SetActive(false);
+				m_wordChanged = true;
+			}
+		}
+
+		if(m_wordCoundown > 0)
+		{
+			m_wordCoundown = m_wordCoundown - Time.deltaTime;
+			Text timeText = m_timerObject.GetComponent<Text> ();
+			timeText.text = ((int)m_wordCoundown).ToString();
+			Color color = Color.red;
+
+			float timestart = m_wordTime * 0.7f;
+			if(m_wordCoundown > timestart)
+			{
+				color.a = 0;
+			}
+			else
+			{
+				color.a = 1.0f - m_wordCoundown / timestart;
+			}
+			timeText.color = color;
+
+			int timesjump = (int)(m_wordTime * 0.4f);
+			float scale = 0.5f;
+			if(m_wordCoundown < timesjump)
+			{
+				float timeleft = m_wordCoundown - (int)m_wordCoundown;
+				scale = (1.0f - timeleft) * 0.5f + 0.5f;
+			}
+
+
+			m_timerObject.transform.localScale = new Vector3(scale, scale, 1);
+			if(m_wordCoundown <= 0)
+			{
+				m_timerObject.SetActive(false);
+				OnClickChoice(4);
+			}
 		}
 	}
 
@@ -92,5 +210,67 @@ public class PanelMain : MonoBehaviour {
 		m_currentWord.UpdateRecord(false);
 		m_progress.ReBelance();
 		m_wordChanged = true;
+	}
+
+	public void OnClickChoice(int choice)
+	{
+		m_timerObject.SetActive(false);
+		m_wordCoundown = 0.0f;
+
+		bool correct = false;
+		if(choice < 4 && m_currentWord.Item.Answer == m_choices[choice])
+		{
+			correct = true;
+		}
+		Text judge = m_judgeText.GetComponent<Text> ();
+		float alpha = 1.0f;
+		if(correct)
+		{
+			judge.text = "正 确！";
+			Color color = Color.green;
+			color.a = alpha;
+			judge.color = color;
+		}
+		else
+		{
+			if(choice == 4)
+			{
+				judge.text = "不认识！";
+			}
+			else
+			{
+				judge.text = "错 误！";
+			}
+			Color color = Color.red;
+			color.a = alpha;
+			judge.color = color;
+		}
+
+		int answerIdx = 0;
+		for(int i = 0; i < m_choices.Count; i++)
+		{
+			if(m_currentWord.Item.Answer == m_choices[i])
+			{
+				answerIdx = i;
+				break;
+			}
+		}
+
+		int idx = 0;
+		foreach(Transform child in m_choicePanel.transform)
+		{
+			Image btnimg = child.gameObject.GetComponent<Image>();
+			if(idx == answerIdx)
+			{
+				btnimg.color = Color.yellow;
+				break;
+			}
+			idx++;
+		}
+
+		m_alphaTime = m_alphaMaxTime;
+		m_judgeText.SetActive(true);
+		m_currentWord.UpdateRecord(correct);
+		m_progress.ReBelance();
 	}
 }

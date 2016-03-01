@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -12,6 +13,16 @@ public class BookDict
 
 	private string m_bookName = "Default";
 	private string m_rootPath;
+	private string m_type= "字词";
+	private int m_timer = 0;
+
+	public int Time
+	{
+		get
+		{
+			return m_timer;
+		}
+	}
 
 	private List<string> m_bookWords;
 	private List<BookItem> m_bookItems;
@@ -25,7 +36,7 @@ public class BookDict
 
 		m_rootPath = path;
 		m_bookName = name;
-
+		/*
 		string bookdir = BookDirectory ();
 		Directory.CreateDirectory (bookdir);
 		string fullpath = BookFullPath();
@@ -39,6 +50,7 @@ public class BookDict
 				file.WriteLine ("西瓜");
 			}
 		}
+		*/
 	}
 
 	static private string BookFileName(string book)
@@ -56,44 +68,38 @@ public class BookDict
 		return BookDirectory() + BookFileName(m_bookName);
 	}
 
+	static string m_headerTag = "header";
+	static string m_typeTag = "type";
 	static string m_contentTag = "content";
 	static string m_itemTag = "item";
+	static string m_timeTag = "time";
 
 	// attribute
 	static string m_idTag = "id";
 
 	public void ReadBook(Progress progress)
 	{
-		/*
-		string fullpath = BookFullPath();
-		if (File.Exists (fullpath))
-		{
-			using (StreamReader file = new StreamReader (fullpath))
-			{
-				while (file.Peek () >= 0)
-				{
-					string word = file.ReadLine ();
-					if(word.Length > 0)
-					{
-						if(!m_wordSet.Contains(word))
-						{
-							m_wordSet.Add(word);
-							m_bookWords.Add(word);
-							BookItem item = new BookItem(word);
-							progress.AddWord (item);
-							m_bookItems.Add(item);
-						}
-					}
-				}
-			}
-		}
-		m_bookWords.Sort();
-		*/
-
 		string xmlpath = BookDirectory() + m_bookName + ".xml";
 
 		XmlDocument doc = new XmlDocument();
 		doc.Load(xmlpath);
+		XmlNodeList headerList = doc.DocumentElement.GetElementsByTagName(m_headerTag);
+		IEnumerator headerEnum = headerList.GetEnumerator();
+		if(headerEnum.MoveNext())
+		{
+			XmlNode headerNode = (XmlNode) headerEnum.Current;
+			var typeAttr = headerNode.Attributes[m_typeTag];
+			if(typeAttr != null)
+			{
+				m_type = typeAttr.Value;
+			}
+			var timeAttr = headerNode.Attributes[m_timeTag];
+			if(timeAttr != null)
+			{
+				m_timer = Convert.ToInt32(timeAttr.Value);
+			}
+		}
+
 		XmlNodeList contentList = doc.DocumentElement.GetElementsByTagName(m_contentTag);
 		IEnumerator contentEnum = contentList.GetEnumerator();
 		while (contentEnum.MoveNext())
@@ -109,7 +115,7 @@ public class BookDict
 				{
 					m_wordSet.Add(word);
 					m_bookWords.Add(word);
-					BookItem item = new BookItem(word);
+					BookItem item = new BookItem(word, this);
 					item.ReadItem(itemNode);
 					progress.AddWord (item);
 					m_bookItems.Add(item);
@@ -122,20 +128,14 @@ public class BookDict
 
 	public void SaveBook()
 	{
-		string fullpath = BookFullPath();
-		using (StreamWriter file = new StreamWriter (fullpath))
-		{
-			foreach(string word in m_bookWords)
-			{
-				file.WriteLine (word);
-			}
-		}
-
 		XmlDocument doc = new XmlDocument();
 		XmlElement rootElement = doc.CreateElement("document");
 		doc.AppendChild(rootElement);
 
 		XmlElement headerElem = doc.CreateElement("header");
+		headerElem.SetAttribute(m_typeTag, m_type);
+		headerElem.SetAttribute(m_timeTag, m_timer.ToString());
+
 		rootElement.AppendChild(headerElem);
 
 		XmlElement contentElem = doc.CreateElement(m_contentTag);

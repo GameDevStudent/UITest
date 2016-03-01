@@ -8,11 +8,13 @@ public class BookItem
 	private string m_text;
 	private string m_answer;
 	private List<string> m_altenative;
+	public BookDict m_dict;
 
-	public BookItem(string text)
+	public BookItem(string text, BookDict dict)
 	{
 		m_text = text;
 		m_altenative = new List<string>();
+		m_dict = dict;
 	}
 
 	public List<string> Choices

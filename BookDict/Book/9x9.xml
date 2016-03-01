@@ -1,114 +1,191 @@
 <?xml version="1.0"?>
 <document>
-  <header />
+  <header type="MathInt" time="25" />
   <content>
-    <item id="2×2=" answer="">
-      <error answer="empty" />
+    <item id="2×2=" answer="4">
+      <error answer="6" />
+      <error answer="7" />
+      <error answer="8" />
     </item>
-    <item id="2×3=" answer="">
-      <error answer="empty" />
+    <item id="2×3=" answer="6">
+      <error answer="4" />
+      <error answer="8" />
+      <error answer="10" />
     </item>
-    <item id="2×4=" answer="">
-      <error answer="empty" />
+    <item id="2×4=" answer="8">
+      <error answer="6" />
+      <error answer="10" />
+      <error answer="12" />
     </item>
-    <item id="2×5=" answer="">
-      <error answer="empty" />
+    <item id="2×5=" answer="10">
+      <error answer="8" />
+      <error answer="12" />
+      <error answer="14" />
     </item>
-    <item id="2×6=" answer="">
-      <error answer="empty" />
+    <item id="2×6=" answer="12">
+      <error answer="10" />
+      <error answer="14" />
+      <error answer="16" />
     </item>
-    <item id="2×7=" answer="">
-      <error answer="empty" />
+    <item id="2×7=" answer="14">
+      <error answer="12" />
+      <error answer="16" />
+      <error answer="18" />
     </item>
-    <item id="2×8=" answer="">
-      <error answer="empty" />
+    <item id="2×8=" answer="16">
+      <error answer="12" />
+      <error answer="15" />
+      <error answer="20" />
     </item>
-    <item id="2×9=" answer="">
-      <error answer="empty" />
+    <item id="2×9=" answer="18">
+      <error answer="16" />
+      <error answer="20" />
+      <error answer="24" />
     </item>
-    <item id="3×3=" answer="">
-      <error answer="empty" />
+    <item id="3×3=" answer="9">
+      <error answer="6" />
+      <error answer="10" />
+      <error answer="12" />
     </item>
-    <item id="3×4=" answer="">
-      <error answer="empty" />
+    <item id="3×4=" answer="12">
+      <error answer="9" />
+      <error answer="10" />
+      <error answer="14" />
     </item>
-    <item id="3×5=" answer="">
-      <error answer="empty" />
+    <item id="3×5=" answer="15">
+      <error answer="12" />
+      <error answer="16" />
+      <error answer="18" />
     </item>
-    <item id="3×6=" answer="">
-      <error answer="empty" />
+    <item id="3×6=" answer="18">
+      <error answer="16" />
+      <error answer="21" />
+      <error answer="24" />
     </item>
-    <item id="3×7=" answer="">
-      <error answer="empty" />
+    <item id="3×7=" answer="21">
+      <error answer="18" />
+      <error answer="24" />
+      <error answer="28" />
     </item>
-    <item id="3×8=" answer="">
-      <error answer="empty" />
+    <item id="3×8=" answer="24">
+      <error answer="26" />
+      <error answer="37" />
+      <error answer="28" />
     </item>
-    <item id="3×9=" answer="">
-      <error answer="empty" />
+    <item id="3×9=" answer="27">
+      <error answer="18" />
+      <error answer="24" />
+      <error answer="36" />
     </item>
-    <item id="4×4=" answer="">
-      <error answer="empty" />
+    <item id="4×4=" answer="16">
+      <error answer="12" />
+      <error answer="24" />
+      <error answer="36" />
     </item>
-    <item id="4×5=" answer="">
-      <error answer="empty" />
+    <item id="4×5=" answer="20">
+      <error answer="16" />
+      <error answer="21" />
+      <error answer="24" />
     </item>
-    <item id="4×6=" answer="">
-      <error answer="empty" />
+    <item id="4×6=" answer="24">
+      <error answer="20" />
+      <error answer="28" />
+      <error answer="30" />
     </item>
-    <item id="4×7=" answer="">
-      <error answer="empty" />
+    <item id="4×7=" answer="28">
+      <error answer="24" />
+      <error answer="27" />
+      <error answer="32" />
     </item>
-    <item id="4×8=" answer="">
-      <error answer="empty" />
+    <item id="4×8=" answer="32">
+      <error answer="28" />
+      <error answer="36" />
+      <error answer="40" />
     </item>
-    <item id="4×9=" answer="">
-      <error answer="empty" />
+    <item id="4×9=" answer="36">
+      <error answer="32" />
+      <error answer="44" />
+      <error answer="49" />
     </item>
-    <item id="5×5=" answer="">
-      <error answer="empty" />
+    <item id="4÷2=" answer="2">
+      <error answer="1" />
+      <error answer="3" />
+      <error answer="4" />
     </item>
-    <item id="5×6=" answer="">
-      <error answer="empty" />
+    <item id="5×5=" answer="25">
+      <error answer="20" />
+      <error answer="24" />
+      <error answer="30" />
     </item>
-    <item id="5×7=" answer="">
-      <error answer="empty" />
+    <item id="5×6=" answer="30">
+      <error answer="25" />
+      <error answer="35" />
+      <error answer="36" />
     </item>
-    <item id="5×8=" answer="">
-      <error answer="empty" />
+    <item id="5×7=" answer="35">
+      <error answer="30" />
+      <error answer="36" />
+      <error answer="45" />
     </item>
-    <item id="5×9=" answer="">
-      <error answer="empty" />
+    <item id="5×8=" answer="40">
+      <error answer="35" />
+      <error answer="42" />
+      <error answer="45" />
     </item>
-    <item id="6×6=" answer="">
-      <error answer="empty" />
+    <item id="5×9=" answer="45">
+      <error answer="40" />
+      <error answer="44" />
+      <error answer="48" />
     </item>
-    <item id="6×7=" answer="">
-      <error answer="empty" />
+    <item id="6×6=" answer="36">
+      <error answer="24" />
+      <error answer="32" />
+      <error answer="48" />
     </item>
-    <item id="6×8=" answer="">
-      <error answer="empty" />
+    <item id="6×7=" answer="42">
+      <error answer="36" />
+      <error answer="48" />
+      <error answer="49" />
     </item>
-    <item id="6×9=" answer="">
-      <error answer="empty" />
+    <item id="6×8=" answer="48">
+      <error answer="42" />
+      <error answer="54" />
+      <error answer="56" />
     </item>
-    <item id="7×7=" answer="">
-      <error answer="empty" />
+    <item id="6×9=" answer="54">
+      <error answer="48" />
+      <error answer="56" />
+      <error answer="63" />
     </item>
-    <item id="7×8=" answer="">
-      <error answer="empty" />
+    <item id="7×7=" answer="49">
+      <error answer="48" />
+      <error answer="56" />
+      <error answer="64" />
     </item>
-    <item id="7×9=" answer="">
-      <error answer="empty" />
+    <item id="7×8=" answer="56">
+      <error answer="49" />
+      <error answer="54" />
+      <error answer="64" />
     </item>
-    <item id="8×8=" answer="">
-      <error answer="empty" />
+    <item id="7×9=" answer="63">
+      <error answer="49" />
+      <error answer="56" />
+      <error answer="64" />
     </item>
-    <item id="8×9=" answer="">
-      <error answer="empty" />
+    <item id="8×8=" answer="64">
+      <error answer="56" />
+      <error answer="63" />
+      <error answer="72" />
     </item>
-    <item id="9×9=" answer="">
-      <error answer="empty" />
+    <item id="8×9=" answer="72">
+      <error answer="56" />
+      <error answer="64" />
+      <error answer="63" />
+    </item>
+    <item id="9×9=" answer="81">
+      <error answer="78" />
+      <error answer="64" />
+      <error answer="91" />
     </item>
   </content>
 </document>

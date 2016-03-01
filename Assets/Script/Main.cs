@@ -84,7 +84,6 @@ public class Main : MonoBehaviour {
 
 		PanelMain panelMainScript = (PanelMain)m_panelMain.GetComponent (typeof(PanelMain));
 		panelMainScript.BookProgress = m_progress;
-
 		SwitchToPanel(m_panelMain);
 	}
 
