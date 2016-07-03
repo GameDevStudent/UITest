@@ -7,6 +7,7 @@ using System.IO;
 public class Record
 {
 	public string m_word;
+	public string m_log;
 	public DateTime m_nextTime;
 	private BookItem m_item;
 	private ArrayList m_recordHistory;
@@ -88,9 +89,9 @@ public class Record
 			}
 		}
 
-		int hours = timegap * 23;
+		int hours = timegap * 20;
 		m_nextTime = now.AddHours(hours);
-		m_nextTime = m_nextTime.AddMinutes(1);
+		m_nextTime = m_nextTime.AddSeconds(15);
 	}
 
 	public void UpdateInfoText(GameObject infoObj)
@@ -112,6 +113,7 @@ public class Record
 			}
 		}
 		text += "正确: " + correct + " 错误: " + wrong + "\r\n";
+		text += m_log;
 		wordText.text = text;
 	}
 

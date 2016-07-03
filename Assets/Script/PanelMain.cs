@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
 public class PanelMain : MonoBehaviour {
 
@@ -22,6 +23,7 @@ public class PanelMain : MonoBehaviour {
 
 	public GameObject m_buttonPanel;
 	public GameObject m_choicePanel;
+	public GameObject m_inputPanel;
 
 	public GameObject m_judgeText;
 	float m_alphaTime = 0.0f;
@@ -73,16 +75,30 @@ public class PanelMain : MonoBehaviour {
 			List<string> choices = new List<string>();
 			choices.Add(m_currentWord.Item.Answer);
 			choices.AddRange(m_currentWord.Item.Choices);
-			if(choices.Count == 4)
+			if(choices.Count == 4 && m_currentWord.Item.m_dict.NeedChoice())
 			{
 				m_choicePanel.SetActive(false);
 				SetChoiceButton(choices);
 				m_choicePanel.SetActive(true);
 				m_buttonPanel.SetActive(false);
+				m_inputPanel.SetActive(false);
+				return;
+			}
+			else if(m_currentWord.Item.m_dict.NeedInput())
+			{
+				m_choicePanel.SetActive(false);
+				m_inputPanel.SetActive(true);
+				m_buttonPanel.SetActive(false);
+
+				GameObject parentField = m_inputText.transform.parent.gameObject;
+				EventSystem.current.SetSelectedGameObject(parentField, null);
+				InputField inputField = parentField.GetComponent<InputField>();
+				inputField.OnPointerClick(new PointerEventData(EventSystem.current));
 				return;
 			}
 		}
 		m_choicePanel.SetActive(false);
+		m_inputPanel.SetActive(false);
 		m_buttonPanel.SetActive(true);
 	}
 
@@ -134,7 +150,19 @@ public class PanelMain : MonoBehaviour {
 		m_timerObject = GameObject.Find("TimerText");
 		m_timerObject.SetActive(false);
 		m_judgeText.SetActive(false);
-	}
+
+        InputField field = m_inputPanel.GetComponentInChildren<InputField>();
+        if (field != null)
+        {
+            field.onEndEdit.AddListener(val =>
+            {
+                if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+                {
+                    OnInput();
+                }
+            });
+        }
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -151,7 +179,6 @@ public class PanelMain : MonoBehaviour {
 				m_judgeText.transform.localScale = new Vector3(scale,scale,1);
 			Text judge = m_judgeText.GetComponent<Text> ();
 			Color color = judge.color;
-			//color.a = m_alphaTime / m_alphaMaxTime;
 			judge.color = color;
 			m_alphaTime = m_alphaTime - Time.deltaTime;
 			if(m_alphaTime <= 0)
@@ -198,6 +225,56 @@ public class PanelMain : MonoBehaviour {
 		}
 	}
 
+	public GameObject m_inputText;
+
+	public void OnInput()
+	{
+        m_alphaTime = m_alphaMaxTime;
+        m_wordCoundown = 0.0f;
+
+        bool correct = false;
+		Text inputText = m_inputText.GetComponent<Text>();
+        if(inputText.text == null)
+        {
+            // null input.
+            return;
+        }
+		if(inputText.text == m_currentWord.Item.Answer)
+		{
+			correct = true;
+		}
+		else
+		{
+			m_currentWord.UpdateRecord(false);
+		}
+		InputField inputField = m_inputText.GetComponentInParent<InputField>();
+		if(inputField != null)
+		{
+			inputField.text = "";
+		}
+		
+		Text judge = m_judgeText.GetComponent<Text> ();
+		float alpha = 1.0f;
+		if(correct)
+		{
+			judge.text = "正 确！";
+			Color color = Color.green;
+			color.a = alpha;
+			judge.color = color;
+		}
+		else
+		{
+			judge.text = "错: " + m_currentWord.Item.Answer;
+			Color color = Color.red;
+			color.a = alpha;
+			judge.color = color;
+		}
+
+		m_judgeText.SetActive(true);
+		m_currentWord.UpdateRecord(correct);
+		m_progress.ReBelance();
+	}
+
 	public void OnClickKnown()
 	{
 		m_currentWord.UpdateRecord(true);
@@ -235,7 +312,7 @@ public class PanelMain : MonoBehaviour {
 		{
 			if(choice == 4)
 			{
-				judge.text = "不认识！";
+				judge.text = "不认识！" + m_currentWord.Item.Answer;
 			}
 			else
 			{

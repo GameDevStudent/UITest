@@ -86,9 +86,11 @@ public class Progress
 
 	public Record GetCurrentWord()
 	{
+		Record record = null;
 		if(m_pendingWords.Count > 0)
 		{
-			return m_pendingWords[0];
+			record = m_pendingWords[0];
+			record.m_log = "pending 0";
 		}
 		else if(m_freshWords.Count > 0)
 		{
@@ -96,14 +98,16 @@ public class Progress
 			int index = random.Next(0, m_freshWords.Count);
 			if(index < m_freshWords.Count)
 			{
-				return m_freshWords[index];
+				record = m_freshWords[index];
+				record.m_log = "fresh random " + index + ", 0 to " + m_freshWords.Count;
 			}
 			else
 			{
-				return m_freshWords[0];
+				record = m_freshWords[0];
+				record.m_log = "fresh 0";
 			}
 		}
-		return null;
+		return record;
 	}
 
 	public void ReBelance()
@@ -118,6 +122,9 @@ public class Progress
 				m_usedWords.Add(record);
 			}
 		}
+		RecordComparer comparer = new RecordComparer();
+		m_freshWords.Sort(comparer);
+		m_freshWords.Reverse();
 		if(m_freshWords.Count > 0)
 		{
 			Record record = m_freshWords[0];
@@ -134,7 +141,6 @@ public class Progress
 				}
 			}
 		}
-		RecordComparer comparer = new RecordComparer();
 		m_usedWords.Sort(comparer);
 		while(m_usedWords.Count > 0)
 		{
