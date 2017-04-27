@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Assets.Script.Utility;
 
 public class Main : MonoBehaviour {
 
@@ -69,8 +70,12 @@ public class Main : MonoBehaviour {
 		}
 		m_profileSetup.InitProfiles(m_availableProgress);
 
-		SwitchToPanel(m_panelSetup);
-	}
+        //SwitchToPanel(m_panelSetup);
+        m_panelMain.SetActive(false);
+
+        UtilityHelper.CreateText(gameObject);
+
+    }
 
 	public void OpenProgress(string id, List<string> books)
 	{

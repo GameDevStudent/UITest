@@ -103,7 +103,7 @@ public class Record
 		int wrong = 0;
 		foreach(RecordEntry entry in m_recordHistory)
 		{
-			if(entry.m_result)
+            if (entry.m_result)
 			{
 				correct++;
 			}
@@ -112,7 +112,21 @@ public class Record
 				wrong++;
 			}
 		}
-		text += "正确: " + correct + " 错误: " + wrong + "\r\n";
+        int outputnum = 0;
+        if (m_recordHistory.Count > 0)
+        {
+            for (int i = m_recordHistory.Count - 1; i != 0; i--)
+            {
+                RecordEntry entry = (RecordEntry)m_recordHistory[i];
+                text += entry.m_time.ToString() + "\r\n";
+                outputnum++;
+                if (outputnum > 3)
+                {
+                    break;
+                }
+            }
+        }
+        text += "正确: " + correct + " 错误: " + wrong + "\r\n";
 		text += m_log;
 		wordText.text = text;
 	}

@@ -54,7 +54,15 @@ public class PanelMain : MonoBehaviour {
 		if(m_currentWord != null)
 		{
 			m_wordText.text = m_currentWord.m_word;
-			m_currentWord.UpdateInfoText(m_wordInfoText);
+            if (m_currentWord.m_word.Length > 6)
+            {
+                m_wordText.fontSize = 140;
+            }
+            else
+            {
+                m_wordText.fontSize = 200;
+            }
+            m_currentWord.UpdateInfoText(m_wordInfoText);
 		}
 		else
 		{
@@ -234,7 +242,7 @@ public class PanelMain : MonoBehaviour {
 
         bool correct = false;
 		Text inputText = m_inputText.GetComponent<Text>();
-        if(inputText.text == null)
+        if (inputText.text == null)
         {
             // null input.
             return;
@@ -247,12 +255,7 @@ public class PanelMain : MonoBehaviour {
 		{
 			m_currentWord.UpdateRecord(false);
 		}
-		InputField inputField = m_inputText.GetComponentInParent<InputField>();
-		if(inputField != null)
-		{
-			inputField.text = "";
-		}
-		
+
 		Text judge = m_judgeText.GetComponent<Text> ();
 		float alpha = 1.0f;
 		if(correct)
@@ -270,7 +273,10 @@ public class PanelMain : MonoBehaviour {
 			judge.color = color;
 		}
 
-		m_judgeText.SetActive(true);
+        InputField field = m_inputPanel.GetComponentInChildren<InputField>();
+        field.text = "";
+
+        m_judgeText.SetActive(true);
 		m_currentWord.UpdateRecord(correct);
 		m_progress.ReBelance();
 	}
