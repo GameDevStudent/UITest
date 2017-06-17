@@ -10,7 +10,9 @@ public class Main : MonoBehaviour {
 
 	public string m_RootPath = @"BookDict\";
 
-	private Progress m_progress;
+    public GameObject prefabButton;
+
+    private Progress m_progress;
 	private ProgressContainer m_availableProgress;
 
 	public GameObject m_panelMain;
@@ -23,7 +25,7 @@ public class Main : MonoBehaviour {
 	public GameObject m_BookList;
 	ProfileUpdate m_profileSetup;
 
-	public Main()
+    public Main()
 	{
 		instance = this;
 		m_availableProgress = new ProgressContainer();
@@ -70,8 +72,11 @@ public class Main : MonoBehaviour {
 		}
 		m_profileSetup.InitProfiles(m_availableProgress);
 
-        //SwitchToPanel(m_panelSetup);
+        SwitchToPanel(m_panelSetup);
         m_panelMain.SetActive(false);
+
+        GameObject m_test = (GameObject)Instantiate(prefabButton);
+        m_test.transform.localScale = new Vector3(1, 1, 1);
 
         UtilityHelper.CreateText(gameObject);
 
@@ -89,7 +94,8 @@ public class Main : MonoBehaviour {
 
 		PanelMain panelMainScript = (PanelMain)m_panelMain.GetComponent (typeof(PanelMain));
 		panelMainScript.BookProgress = m_progress;
-		SwitchToPanel(m_panelMain);
+        panelMainScript.ResetState();
+        SwitchToPanel(m_panelMain);
 	}
 
 	public void OnNewProfile()

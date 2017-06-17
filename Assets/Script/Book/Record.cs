@@ -100,16 +100,19 @@ public class Record
 		string text = "已记忆次数: " + m_recordHistory.Count + "\r\n";
 		text += "下一次: " + m_nextTime.ToString() + "\r\n";
 		int correct = 0;
+		int latestCorrect = 0;
 		int wrong = 0;
 		foreach(RecordEntry entry in m_recordHistory)
 		{
             if (entry.m_result)
 			{
 				correct++;
+				latestCorrect++;
 			}
 			else
 			{
 				wrong++;
+				latestCorrect = 0;
 			}
 		}
         int outputnum = 0;
@@ -118,7 +121,16 @@ public class Record
             for (int i = m_recordHistory.Count - 1; i != 0; i--)
             {
                 RecordEntry entry = (RecordEntry)m_recordHistory[i];
-                text += entry.m_time.ToString() + "\r\n";
+                text += entry.m_time.ToString();
+                if (entry.m_result)
+                {
+                    text += " 正确";
+                }
+                else
+                {
+                    text += " 错误";
+                }
+                text += "\r\n";
                 outputnum++;
                 if (outputnum > 3)
                 {
@@ -126,12 +138,22 @@ public class Record
                 }
             }
         }
-        text += "正确: " + correct + " 错误: " + wrong + "\r\n";
+        text += "正确: " + correct + " 错误: " + wrong + " 连续正确: " + latestCorrect + "\r\n";
 		text += m_log;
 		wordText.text = text;
 	}
 
-	public void Save(BinaryWriter writer)
+    public delegate void ProcessRecordEntry(DateTime date, bool correct);
+
+    public void ProcessRecord(ProcessRecordEntry processEntry)
+    {
+        foreach (RecordEntry entry in m_recordHistory)
+        {
+            processEntry(entry.m_time, entry.m_result);
+        }
+    }
+
+    public void Save(BinaryWriter writer)
 	{
 		writer.Write(m_word);
 		writer.Write(m_nextTime.ToBinary());

@@ -1,10 +1,16 @@
 fileFormatVersion: 2
 guid: 2431aff0bd4f96f458c09ae2c9067c3a
-timeCreated: 1454636647
+timeCreated: 1493264046
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - prefabButton: {fileID: 151184, guid: 464708ce28217954da18cae52bb1c5b4, type: 2}
+  - m_panelMain: {instanceID: 0}
+  - m_panelSetup: {instanceID: 0}
+  - m_panelNewProfile: {instanceID: 0}
+  - m_panelEditBook: {instanceID: 0}
+  - m_BookList: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

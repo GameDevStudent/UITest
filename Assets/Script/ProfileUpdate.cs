@@ -27,13 +27,13 @@ public class ProfileUpdate : MonoBehaviour {
 	public void InitProfiles(ProgressContainer container)
 	{
 		DestroyAllTabs();
-
+        /*
 		GameObject newprofile = Instantiate(m_profilePrefab);
 		ProfileButtonController script = (ProfileButtonController)newprofile.GetComponent (typeof(ProfileButtonController));
 		script.SetButtonText("新进度", true);
 		//script.AddBook("Default");
 		newprofile.transform.SetParent(gameObject.transform, false);
-
+        */
 		container.AccessProfiles(AddProfile);
 	}
 
